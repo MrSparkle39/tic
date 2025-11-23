@@ -1,163 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog - The Inclusion Crew</title>
-  <meta name="description" content="Read our latest blog posts and updates">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f9fafb;
-    }
-    header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 1rem 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-decoration: none;
-      color: white;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 2rem;
-      font-weight: 500;
-    }
-    nav a:hover {
-      opacity: 0.8;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: #111;
-    }
-    .subtitle {
-      color: #666;
-      margin-bottom: 3rem;
-    }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 2rem;
-    }
-    .blog-card {
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .blog-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    .blog-card-image {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-    .blog-card-content {
-      padding: 1.5rem;
-    }
-    .blog-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
-    .blog-card h3 a {
-      color: #111;
-      text-decoration: none;
-    }
-    .blog-card h3 a:hover {
-      color: #667eea;
-    }
-    .date {
-      color: #999;
-      font-size: 0.85rem;
-      margin-bottom: 0.5rem;
-    }
-    .excerpt {
-      color: #555;
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-    .read-more {
-      color: #667eea;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .read-more:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #666;
-      font-size: 0.9rem;
-      margin-top: 4rem;
-    }
-    @media (max-width: 768px) {
-      .header-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      nav {
-        margin-top: 1rem;
-      }
-      nav a {
-        margin: 0 1rem;
-      }
-      .blog-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - The Inclusion Crew | NDIS Support Insights</title>
+    <meta name="description" content="Read our latest NDIS support insights, disability services tips, and community inclusion updates from The Inclusion Crew.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00bcd4;
+            --secondary-color: #ffeb3b;
+            --dark-bg: #2c2c2c;
+            --light-bg: #f8f9fa;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--light-bg);
+        }
+        
+        .header {
+            background: #2c2c2c;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            padding: 0;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            height: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo-container img {
+            height: 80px;
+            width: auto;
+        }
+        
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .ndis-header-logo {
+            height: 75px;
+            width: auto;
+            padding: 8px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .cta-button:hover {
+            background: #00a3b8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 60px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .blog-card-image {
+            width: 100%;
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            background-color: var(--primary-color);
+        }
+        
+        .blog-card-content {
+            padding: 25px;
+        }
+        
+        .blog-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .blog-card h3 a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .blog-card h3 a:hover {
+            color: var(--primary-color);
+        }
+        
+        .date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        
+        .excerpt {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .read-more:hover {
+            color: #00a3b8;
+        }
+        
+        .footer {
+            background: var(--dark-bg);
+            color: var(--white);
+            padding: 60px 20px 30px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            height: 80px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-ndis-badge {
+            margin-top: 20px;
+        }
+        
+        .ndis-footer-logo {
+            max-width: 150px;
+            height: auto;
+            padding: 8px 12px;
+            background: var(--white);
+            border-radius: 8px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 20px;
+                flex-wrap: wrap;
+                height: auto;
+                padding: 15px 20px;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .header-right {
+                gap: 10px;
+            }
+            
+            .ndis-header-logo {
+                height: 50px;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <a href="/" class="logo">TIC</a>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/services.html">Services</a>
-        <a href="/blog.html">Blog</a>
-        <a href="/contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="/index.html">
+                    <img src="/logo.png" alt="The Inclusion Crew Logo" class="logo">
+                </a>
+            </div>
+            <nav>
+                <a href="/index.html">Home</a>
+                <a href="/about.html">About</a>
+                <a href="/services.html">Services</a>
+                <a href="/contact.html">Contact</a>
+            </nav>
+            <div class="header-right">
+                <img src="/ndis-logo.png" alt="NDIS Registered Provider" class="ndis-header-logo">
+                <a href="/contact.html" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </header>
 
-  <div class="container">
-    <h1>Our Blog</h1>
-    <p class="subtitle">Read our latest insights and updates</p>
+    <div class="container">
+        <h1>Our Blog</h1>
+        <p class="subtitle">NDIS support insights, disability services tips, and community inclusion updates</p>
 
-    <div class="blog-grid">
-      
+        <div class="blog-grid">
+            
     <div class="blog-card">
-      <div class="blog-card-image"></div>
+      <div class="blog-card-image" style="background-image: url('https://img.b2bpic.net/premium-photo/inclusive-group-friends-taking-selfie-photo_236854-64770.jpg')"></div>
+      <div class="blog-card-content">
+        <h3><a href="/blog/complete-guide-to-disability-support-at-home-services-benefits-and-how-to-get-started.html">Complete Guide to Disability Support at Home: Services, Benefits, and How to Get Started</a></h3>
+        <p class="date">November 23, 2025</p>
+        <p class="excerpt">Discover comprehensive disability support services at home. Learn about NDIS funding, care options, and how to access quality home-based disability ca...</p>
+        <a href="/blog/complete-guide-to-disability-support-at-home-services-benefits-and-how-to-get-started.html" class="read-more">Read More →</a>
+      </div>
+    </div>
+  
+    <div class="blog-card">
+      <div class="blog-card-image" style="background-image: url('')"></div>
       <div class="blog-card-content">
         <h3><a href="/blog/your-complete-guide-to-ndis-in-home-support-in-sydney-services-benefits-getting-started.html">Your Complete Guide to NDIS In-Home Support in Sydney: Services, Benefits & Getting Started</a></h3>
         <p class="date">November 23, 2025</p>
@@ -167,7 +347,7 @@
     </div>
   
     <div class="blog-card">
-      <div class="blog-card-image"></div>
+      <div class="blog-card-image" style="background-image: url('')"></div>
       <div class="blog-card-content">
         <h3><a href="/blog/what-are-the-costs-of-going-onto-the-ndis-a-complete-guide-to-ndis-expenses.html">What Are the Costs of Going Onto the NDIS? A Complete Guide to NDIS Expenses</a></h3>
         <p class="date">November 23, 2025</p>
@@ -177,7 +357,7 @@
     </div>
   
     <div class="blog-card">
-      <div class="blog-card-image"></div>
+      <div class="blog-card-image" style="background-image: url('')"></div>
       <div class="blog-card-content">
         <h3><a href="/blog/5-life-changing-benefits-of-in-home-ndis-support-services-for-australian-participants.html">5 Life-Changing Benefits of In-Home NDIS Support Services for Australian Participants</a></h3>
         <p class="date">November 23, 2025</p>
@@ -187,7 +367,7 @@
     </div>
   
     <div class="blog-card">
-      <div class="blog-card-image"></div>
+      <div class="blog-card-image" style="background-image: url('')"></div>
       <div class="blog-card-content">
         <h3><a href="/blog/how-to-prepare-for-your-first-ndis-planning-meeting-a-complete-guide.html">How to Prepare for Your First NDIS Planning Meeting: A Complete Guide</a></h3>
         <p class="date">November 23, 2025</p>
@@ -197,7 +377,7 @@
     </div>
   
     <div class="blog-card">
-      <div class="blog-card-image"></div>
+      <div class="blog-card-image" style="background-image: url('')"></div>
       <div class="blog-card-content">
         <h3><a href="/blog/how-to-prepare-for-your-first-ndis-planning-meeting-a-complete-guide.html">How to Prepare for Your First NDIS Planning Meeting: A Complete Guide</a></h3>
         <p class="date">November 23, 2025</p>
@@ -207,7 +387,7 @@
     </div>
   
     <div class="blog-card">
-      <div class="blog-card-image"></div>
+      <div class="blog-card-image" style="background-image: url('')"></div>
       <div class="blog-card-content">
         <h3><a href="/blog/ndis-community-participation-unlocking-independence-and-social-connection.html">NDIS Community Participation: Unlocking Independence and Social Connection</a></h3>
         <p class="date">November 23, 2025</p>
@@ -217,7 +397,7 @@
     </div>
   
     <div class="blog-card">
-      <div class="blog-card-image"></div>
+      <div class="blog-card-image" style="background-image: url('')"></div>
       <div class="blog-card-content">
         <h3><a href="/blog/5-life-changing-benefits-of-community-participation-in-the-ndis-you-need-to-know.html">5 Life-Changing Benefits of Community Participation in the NDIS You Need to Know</a></h3>
         <p class="date">November 23, 2025</p>
@@ -227,7 +407,7 @@
     </div>
   
     <div class="blog-card">
-      <div class="blog-card-image"></div>
+      <div class="blog-card-image" style="background-image: url('')"></div>
       <div class="blog-card-content">
         <h3><a href="/blog/5-life-changing-benefits-of-in-home-ndis-support-services.html">5 Life-Changing Benefits of In-Home NDIS Support Services</a></h3>
         <p class="date">November 22, 2025</p>
@@ -237,7 +417,7 @@
     </div>
   
     <div class="blog-card">
-      <div class="blog-card-image"></div>
+      <div class="blog-card-image" style="background-image: url('')"></div>
       <div class="blog-card-content">
         <h3><a href="/blog/how-to-choose-the-right-ndis-provider-in-sydney-a-complete-guide.html">How to Choose the Right NDIS Provider in Sydney: A Complete Guide</a></h3>
         <p class="date">November 21, 2025</p>
@@ -246,11 +426,48 @@
       </div>
     </div>
   
+        </div>
     </div>
-  </div>
 
-  <footer>
-    <p>&copy; 2025 The Inclusion Crew. All rights reserved.</p>
-  </footer>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="/logo.png" alt="The Inclusion Crew Logo" class="footer-logo">
+                <p>Professional NDIS disability support services delivered with respect, flexibility, and genuine care.</p>
+                <div class="footer-ndis-badge">
+                    <img src="/ndis-logo.png" alt="NDIS Registered Provider" class="ndis-footer-logo">
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/services.html">Services</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="/services.html#in-home-support">In Home Support</a></li>
+                    <li><a href="/services.html#personal-care">Personal Care</a></li>
+                    <li><a href="/services.html#community-participation">Community Participation</a></li>
+                    <li><a href="/services.html#transportation">Transportation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="tel:1800986574">Phone: 1800 986 574</a></li>
+                    <li><a href="mailto:contact@theinclusioncrew.com.au">contact@theinclusioncrew.com.au</a></li>
+                    <li>Greater Sydney Based | Australia-Wide Registered</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 The Inclusion Crew. All rights reserved. | Registered NDIS Provider</p>
+        </div>
+    </footer>
 </body>
 </html>
